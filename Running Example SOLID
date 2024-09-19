@@ -1,11 +1,38 @@
-public class Main {
-    public static void main(String[] args) {
-        // Anda dapat menjalankan FullTimeWorker atau RobotWorker di sini
-        FullTimeWorker fullTimeWorker = new FullTimeWorker();
-        fullTimeWorker.work();
-        fullTimeWorker.eat();
+// Single Responsibility Principle (SRP)
+// Setiap kelas hanya bertanggung jawab untuk satu hal, entah menghitung bangun datar atau bangun ruang.
 
-        RobotWorker robotWorker = new RobotWorker();
-        robotWorker.work();
+interface MenghitungBangunDatar {
+    double hitungLuas();
+    double hitungKeliling();
+}
+
+interface MenghitungBangunRuang {
+    double hitungVolume();
+    double hitungLuasPermukaan();
+}
+
+// Implementasi kelas untuk bangun datar Persegi
+class Persegi implements MenghitungBangunDatar {
+    private double sisi;
+
+    public Persegi(double sisi) {
+        this.sisi = sisi;
+    }
+
+    @Override
+    public double hitungLuas() {
+        return sisi * sisi;
+    }
+
+    @Override
+    public double hitungKeliling() {
+        return 4 * sisi;
     }
 }
+
+// Implementasi kelas untuk bangun ruang Kubus
+class Kubus implements MenghitungBangunRuang {
+    private double sisi;
+
+    public Kubus(double sisi) {
+        this.sisi =
